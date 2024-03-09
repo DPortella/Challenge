@@ -61,6 +61,7 @@ def json2(image):
      with open('info.json', 'a') as file:
           json.dump(data, file)'''
 
+#Função que adiciona as imagens com rostos ao CSV
 def image_to_file(caminho):
      lst1 = ["PATH"]
      lst2 = [caminho]

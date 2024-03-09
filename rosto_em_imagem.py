@@ -3,7 +3,7 @@ import cv2
 import texto_em_imagem
 import infos_to_file
 
-
+#Função que identifica rostos em fotos
 def imagem(caminho, file, path):
     face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     img = cv2.imread(caminho)  # Lendo a imagem
@@ -15,7 +15,9 @@ def imagem(caminho, file, path):
         if (faces).all():
             print('Rosto encontrado em: %s' % os.path.join(path, file))
             # json2(image)
+            #Colocando as fostos no csv
             infos_to_file.image_to_file(caminho)
             break
+    # Chama módulo
     texto_em_imagem.texto(caminho, file, path)
     # cv2.imshow(image, img_75)

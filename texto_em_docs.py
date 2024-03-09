@@ -1,13 +1,8 @@
 import valid_cpf
 import infos_to_file
-from PIL import Image
-import pytesseract
 import re
 
-#Função que identifica os textos nas imagens
-def texto(caminho, file, path):
-    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-    text = pytesseract.image_to_string(caminho)
+def texto(caminho, file, path, text):
     pattern = r'[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2}'  # Regex CNPJ
     pattern1 = r'\b(\d{3}\.?\d{3}\.?\d{3}-?\d{2})\b'  # Regex CPF
     pattern2 = r'\b\d{2}\.?\d{3}\.?\d{3}-?\d\b'  # Regex RG

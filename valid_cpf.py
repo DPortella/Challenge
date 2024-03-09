@@ -1,5 +1,6 @@
 import infos_to_file
 
+#Função que valida os cpfs encontrados
 def valida_cpf(caminho, cpf_total):
     cpf_validos = []
     for numero_cpf in cpf_total:
