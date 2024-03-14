@@ -4,19 +4,6 @@ import infos_to_file
 import re
 import pandas as pd
 
-def encontrar_informacoes_xlsx(file_path):
-    try:
-        workbook = openpyxl.load_workbook(file_path)
-        texto = ""
-
-        for sheet in workbook:
-            for row in sheet.iter_rows():
-                for cell in row:
-                    texto += str(cell.value) + "\n"
-    except Exception as e:
-        print(f"Erro ao ler o arquivo XLSX {file_path}: {str(e)}")
-        return None
-    
 def texto(caminho, file, path, text):
     
     base_de_dados_nomes = pd.read_csv('Arquivos/ibgeNomes.csv', encoding='utf-8', sep=';')
