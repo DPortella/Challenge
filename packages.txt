@@ -9,3 +9,4 @@ setuptools
 six
 pymupdf
 python-docx
+openpyxl
