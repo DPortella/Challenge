@@ -52,22 +52,6 @@ def tel_to_file(caminho, tel):
           for i in range(len(lst1)):
                writer.writerow([lst1[i], lst2[i]])
 
-'''def json1(image, cnpj, cpf):
-     data = {
-          "image": image,
-          "CNPJ": cnpj,
-          "CPF": cpf
-     }
-     with open('info.json', 'a') as file:
-          json.dump(data, file)
-
-def json2(image):
-     data = {
-          "image": image,
-     }
-     with open('info.json', 'a') as file:
-          json.dump(data, file)'''
-
 #Função que adiciona as imagens com rostos ao CSV
 def image_to_file(caminho):
      lst1 = ["PATH"]
