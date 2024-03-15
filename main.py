@@ -6,8 +6,6 @@ import texto_em_docs
 import texto_em_xlsx
 import fitz
 import openpyxl
-from tkinter import *
-from tkinter import messagebox
 from docx import Document
 from tkinter import *
 from tkinter import messagebox
