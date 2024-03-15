@@ -3,7 +3,9 @@
 import os.path
 import rosto_em_imagem
 import texto_em_docs
+import texto_em_xlsx
 import fitz
+import openpyxl
 from docx import Document
 from tkinter import *
 from tkinter import messagebox
@@ -65,5 +67,15 @@ class MinhaGUI:
                     doc = Document(caminho)
                     text = '\n'.join([p.text for p in doc.paragraphs])
                     texto_em_docs.texto(caminho, file, path, text)
+
+               elif file.endswith(".xlsx"):
+                    caminho = os.path.join(path, file)
+                    workbook = openpyxl.load_workbook(caminho)
+                    texto = ""
+               for sheet in workbook:
+                    for row in sheet.iter_rows():
+                         for cell in row:
+                              texto += str(cell.value) + "\n"
+               texto_em_xlsx.texto(caminho, file, path, texto)
 
 gui = MinhaGUI()

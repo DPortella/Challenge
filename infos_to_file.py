@@ -10,7 +10,14 @@ def cnpj_to_file(caminho, cnpj):
           for i in range(len(lst1)):
                writer.writerow([lst1[i], lst2[i]])
 
-
+#Função para adicionar nomes ao csv
+def nome1_to_file(caminho, nome):
+     lst1 = ["PATH", "NOME"]
+     lst2 = [caminho, nome]
+     with open('info.csv', 'a') as file:
+          writer = csv.writer(file, delimiter=",")
+          for i in range(len(lst1)):
+               writer.writerow([lst1[i], lst2[i]])
 
 #Função para adicionar CPF ao csv
 def cpf_to_file(caminho, cpf_validos):
