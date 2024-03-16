@@ -72,10 +72,10 @@ class MinhaGUI:
                     caminho = os.path.join(path, file)
                     workbook = openpyxl.load_workbook(caminho)
                     texto = ""
-               for sheet in workbook:
-                    for row in sheet.iter_rows():
-                         for cell in row:
-                              texto += str(cell.value) + "\n"
-               texto_em_xlsx.texto(caminho, file, path, texto)
+                    for sheet in workbook:
+                        for row in sheet.iter_rows():
+                            for cell in row:
+                                texto += str(cell.value) + "\n"
+                    texto_em_xlsx.texto(caminho, file, path, texto)
 
 gui = MinhaGUI()
