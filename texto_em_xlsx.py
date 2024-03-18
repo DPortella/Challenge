@@ -22,7 +22,7 @@ def texto(caminho, file, path, text):
     #nome = re.findall(r'\b(?!(de|da|dos|do|das)(\s+|$))(' + nomes_ibge.lower() + r')\b', text, flags=re.IGNORECASE) 
     #nome = re.findall(r'\b(?<!(de|da|dos)(\s+|$))(' + nomes_ibge.lower() + r')\b', text, flags=re.IGNORECASE)
     
-    nome = re.findall(r'\b(?!de\s+)(?!da\s+)(?!dos\s+)(?!dos$)(' + nomes_ibge.lower() + r')\b', text, flags=re.IGNORECASE)
+    nome = re.findall(r'\b(?!de\s+)(?!da\s+)(?!este\b)(?!dos\s+)(?!dos$)(?!do\s+)(?!das\s+)(' + nomes_ibge.lower() + r')\b', text, flags=re.IGNORECASE)
     cnpj = re.findall(pattern, text)
     cpf_total = re.findall(pattern1, text)
     rg = re.findall(pattern2, text)
