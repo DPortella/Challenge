@@ -1,5 +1,5 @@
 #Parte principal e inicial do programa
-
+import tkinter as tk
 import os.path
 import rosto_em_imagem
 import texto_em_docs
@@ -8,22 +8,32 @@ import fitz
 import openpyxl
 from docx import Document
 from tkinter import *
+from tkinter import PhotoImage as pht
 from tkinter import messagebox
 
 class MinhaGUI:
     def __init__(self):
         # Criamos a janela principal
         self.janela_principal = Tk()
+        self.janela_principal.iconbitmap("ico2.ico")
+        self.janela_principal.maxsize(width=580, height=200)
+        self.janela_principal.title('GetSens3')
+
+        #Criando Label do logo
+        self.img = pht(file="logooo.png")
+        self.label1 = tk.Label(self.janela_principal, image=self.img)
+        self.label1.pack(side='bottom')
 
         # Criando os frames
         self.frame_cima = Frame(self.janela_principal)
         self.frame_baixo = Frame(self.janela_principal)
 
+
         # Criando label e botões do frame de cima
         self.label = Label(self.frame_cima, text='Indique o caminho que deve ser analisado:')
 
         # Criando o widget de entrada
-        self.entrada = Entry(self.frame_cima, width=30)
+        self.entrada = Entry(self.frame_cima, width=40)
 
         # Empacotando label e entrada no frame de cima
         self.label.pack(side='left')
