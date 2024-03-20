@@ -36,4 +36,4 @@ def valida_cpf(caminho, cpf_total):
             cpf_validos.append(cpf)
     cpf_validos = '\n'.join(cpf_validos)
     print(f"Cpf encontrado em {caminho}:\n{cpf_validos}")
-    infos_to_file.cpf_to_file(caminho, cpf_validos)
+    infos_to_file.cpf_to_file(caminho)

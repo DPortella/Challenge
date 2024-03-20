@@ -2,55 +2,55 @@ import csv
 import json
 
 #Função para adicionar CNPJ ao csv
-def cnpj_to_file(caminho, cnpj):
-     lst1 = ["PATH", "CNPJ"]
-     lst2 = [caminho, cnpj]
+def cnpj_to_file(caminho):
+     lst1 = ["PATH"]
+     lst2 = [caminho]
      with open('info.csv', 'a') as file:
           writer = csv.writer(file, delimiter=",")
           for i in range(len(lst1)):
-               writer.writerow([lst1[i], lst2[i]])
+               writer.writerow([lst1[i], lst2[i], "CNPJ encontrado"])
 
 #Função para adicionar nomes ao csv
-def nome1_to_file(caminho, nome):
-     lst1 = ["PATH", "NOME"]
-     lst2 = [caminho, nome]
+def nome1_to_file(caminho):
+     lst1 = ["PATH"]
+     lst2 = [caminho]
      with open('info.csv', 'a') as file:
           writer = csv.writer(file, delimiter=",")
           for i in range(len(lst1)):
-               writer.writerow([lst1[i], lst2[i]])
+               writer.writerow([lst1[i], lst2[i], "Nome encontrado"])
 
 #Função para adicionar CPF ao csv
-def cpf_to_file(caminho, cpf_validos):
-     lst1 = ["PATH", "CPF"]
-     lst2 = [caminho, cpf_validos]
+def cpf_to_file(caminho):
+     lst1 = ["PATH"]
+     lst2 = [caminho]
      with open('info.csv', 'a') as file:
           writer = csv.writer(file, delimiter=",")
           for i in range(len(lst1)):
-               writer.writerow([lst1[i], lst2[i]])
+               writer.writerow([lst1[i], lst2[i], "CPF encontrado"])
 
-def rg_to_file(caminho, rg):
-     lst1 = ["PATH", "RG"]
-     lst2 = [caminho, rg]
+def rg_to_file(caminho):
+     lst1 = ["PATH"]
+     lst2 = [caminho]
      with open('info.csv', 'a') as file:
           writer = csv.writer(file, delimiter=",")
           for i in range(len(lst1)):
-               writer.writerow([lst1[i], lst2[i]])
+               writer.writerow([lst1[i], lst2[i], "RG encontrado"])
 
-def datas_to_file(caminho, datas):
-     lst1 = ["PATH", "DATA"]
-     lst2 = [caminho, datas]
+def datas_to_file(caminho):
+     lst1 = ["PATH"]
+     lst2 = [caminho]
      with open('info.csv', 'a') as file:
           writer = csv.writer(file, delimiter=",")
           for i in range(len(lst1)):
-               writer.writerow([lst1[i], lst2[i]])
+               writer.writerow([lst1[i], lst2[i], "Data encontrada"])
 
-def tel_to_file(caminho, tel):
-     lst1 = ["PATH", "TELEFONE"]
-     lst2 = [caminho, tel]
+def tel_to_file(caminho):
+     lst1 = ["PATH"]
+     lst2 = [caminho]
      with open('info.csv', 'a') as file:
           writer = csv.writer(file, delimiter=",")
           for i in range(len(lst1)):
-               writer.writerow([lst1[i], lst2[i]])
+               writer.writerow([lst1[i], lst2[i], "Telefone encontrado"])
 
 #Função que adiciona as imagens com rostos ao CSV
 def image_to_file(caminho):

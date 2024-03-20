@@ -1,6 +1,5 @@
 import valid_cpf
 import infos_to_file
-from PIL import Image
 import pytesseract
 import re
 
@@ -21,7 +20,7 @@ def texto(caminho, file, path):
 
     if len(cnpj) != 0:
         cnpj = '\n'.join(cnpj)
-        infos_to_file.cnpj_to_file(caminho, cnpj)
+        infos_to_file.cnpj_to_file(caminho)
         # json1(image, cnpj, cpf)
         print(f"CNPJ encontrado em: {caminho}:\n{cnpj}")
 
@@ -31,15 +30,15 @@ def texto(caminho, file, path):
 
     if len(rg) != 0:
         rg = '\n'.join(rg)
-        infos_to_file.rg_to_file(caminho, rg)
+        infos_to_file.rg_to_file(caminho)
         print(f"RG encontrado em: {caminho}:\n{rg}")
 
     if len(datas) != 0:
         datas = '\n'.join(datas)
-        infos_to_file.datas_to_file(caminho, datas)
+        infos_to_file.datas_to_file(caminho)
         print(f"Datas encontradas em: {caminho}:\n{datas}")
 
     if len(tel) != 0:
         tel = '\n'.join(tel)
-        infos_to_file.tel_to_file(caminho, tel)
+        infos_to_file.tel_to_file(caminho)
         print(f"Telefone encontrado em: {caminho}:\n{tel}")

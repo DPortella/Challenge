@@ -33,12 +33,12 @@ def texto(caminho, file, path, text):
     if len(nome) != 0:
 
         nome = '\n'.join(nome)
-        infos_to_file.nome1_to_file(caminho, nome)
+        infos_to_file.nome1_to_file(caminho)
         print(f"Primeiro nome encontrado em: {caminho}:\n{nome}")
 
     if len(cnpj) != 0:
         cnpj = '\n'.join(cnpj)
-        infos_to_file.cnpj_to_file(caminho, cnpj)
+        infos_to_file.cnpj_to_file(caminho)
         # json1(image, cnpj, cpf)
         print(f"CNPJ encontrado em: {caminho}:\n{cnpj}")
 
@@ -48,18 +48,15 @@ def texto(caminho, file, path, text):
 
     if len(rg) != 0:
         rg = '\n'.join(rg)
-        infos_to_file.rg_to_file(caminho, rg)
-        # json1(image, cnpj, cpf)
+        infos_to_file.rg_to_file(caminho, )
         print(f"RG encontrado em: {caminho}:\n{rg}")
 
     if len(datas) != 0:
         datas = '\n'.join(datas)
-        infos_to_file.datas_to_file(caminho, datas)
-        # json1(image, cnpj, cpf)
+        infos_to_file.datas_to_file(caminho)
         print(f"Datas encontradas em: {caminho}:\n{datas}")
 
     if len(tel) != 0:
         tel = '\n'.join(tel)
-        infos_to_file.tel_to_file(caminho, tel)
-        # json1(image, cnpj, cpf)
+        infos_to_file.tel_to_file(caminho)
         print(f"Telefone encontrado em: {caminho}:\n{tel}")
