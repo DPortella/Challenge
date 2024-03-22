@@ -11,16 +11,20 @@ from tkinter import *
 from tkinter import PhotoImage as pht
 from tkinter import messagebox
 
+
+
+
+#Montando GUI
 class MinhaGUI:
     def __init__(self):
         # Criamos a janela principal
         self.janela_principal = Tk()
-        self.janela_principal.iconbitmap("ico2.ico")
+        self.janela_principal.iconbitmap(r"C:\Users\marci\Documents\Challenge\ico2.ico")
         self.janela_principal.maxsize(width=580, height=200)
         self.janela_principal.title('GetSens3')
 
         #Criando Label do logo
-        self.img = pht(file="logooo.png")
+        self.img = pht(file=r"C:\Users\marci\Documents\Challenge\logooo.png")
         self.label1 = tk.Label(self.janela_principal, image=self.img)
         self.label1.pack(side='bottom')
 
@@ -87,5 +91,7 @@ class MinhaGUI:
                             for cell in row:
                                 texto += str(cell.value) + "\n"
                     texto_em_xlsx.texto(caminho, file, path, texto)
+
+        messagebox.showinfo("GetSens3", "Análise feita com sucesso!")
 
 gui = MinhaGUI()
