@@ -5,7 +5,7 @@ import pandas as pd
 
 def texto(caminho, file, path, text):
     
-    base_de_dados_nomes = pd.read_csv(r'C:\Users\marci\Documents\Challenge\Arquivos\ibgeNomes.csv', encoding='utf-8', sep=';')
+    base_de_dados_nomes = pd.read_csv('ibgeNomes.csv', encoding='utf-8', sep=';')
     nomes_ibge = '|'.join(base_de_dados_nomes['nome'])
 
     pattern = r'[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2}'  # Regex CNPJ

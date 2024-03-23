@@ -5,7 +5,7 @@ import infos_to_file
 
 #Função que identifica rostos em fotos
 def imagem(caminho, file, path):
-    face_cascade = cv2.CascadeClassifier(r'C:\Users\marci\Documents\Challenge\haarcascade_frontalface_default.xml')
+    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     img = cv2.imread(caminho)  # Lendo a imagem
     gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # Tornando a imagem em P/B
     # img_75 = cv2.resize(img, (1080, 720))
