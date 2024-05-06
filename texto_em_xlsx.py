@@ -10,7 +10,7 @@ def texto(caminho, file, path, text):
     nomes_ibge = '|'.join(base_de_dados_nomes['nome'])
 
     pattern = r'[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2}'  # Regex CNPJ
-    pattern1 = r'\b(\d{3}\.?\d{3}\.?\d{3}-?\d{2})\b'  # Regex CPF
+    pattern1 = r'\b\d{3}[\.-]?\d{3}[\.-]?\d{3}[\-\/]?\d{2}\b'  # Regex CPF
     pattern2 = r'\b\d{2}\.?\d{3}\.?\d{3}-?\d\b'  # Regex RG
     pattern3 = r'(\d{1,2}[-./]\d{1,2}[-./]\d{2,4})'  # Regex datas
 
@@ -19,9 +19,6 @@ def texto(caminho, file, path, text):
     pattern4 = r'(?:\+\d{2}\s?)?(?:\(\d{2}\)\s?)?(?:9\d{4}|\d{4,5})-\d{4}$'
     #pattern4 = r'(?:\+\d{2}\s?)?(\(\d{2}\)\s?)?\d{4,5}-\d{4}$'  # Regex telefone
 
-    #nome = re.findall(r'\b(?!(de|da|dos|do|das)(\s+|$))(' + nomes_ibge.lower() + r')\b', text, flags=re.IGNORECASE) 
-    #nome = re.findall(r'\b(?<!(de|da|dos)(\s+|$))(' + nomes_ibge.lower() + r')\b', text, flags=re.IGNORECASE)
-    
     nome = re.findall(r'\b(?!de\s+)(?!da\s+)(?!este\b)(?!dos\s+)(?!dos$)(?!do\s+)(?!das\s+)(' + nomes_ibge.lower() + r')\b', text, flags=re.IGNORECASE)
     cnpj = re.findall(pattern, text)
     cpf_total = re.findall(pattern1, text)

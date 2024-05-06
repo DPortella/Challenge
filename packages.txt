@@ -11,3 +11,4 @@ pymupdf
 python-docx
 pandas
 openpyxl
+email

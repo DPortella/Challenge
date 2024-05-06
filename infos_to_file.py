@@ -1,11 +1,14 @@
 import csv
-import json
+import os.path
+
+
+username = os.environ['USERPROFILE']
 
 #Função para adicionar CNPJ ao csv
 def cnpj_to_file(caminho):
      lst1 = ["PATH"]
      lst2 = [caminho]
-     with open('info.csv', 'a') as file:
+     with open(fr'{username}\Documents\Info.csv', 'a') as file:
           writer = csv.writer(file, delimiter=",")
           for i in range(len(lst1)):
                writer.writerow([lst1[i], lst2[i], "CNPJ encontrado"])
@@ -14,7 +17,7 @@ def cnpj_to_file(caminho):
 def nome1_to_file(caminho):
      lst1 = ["PATH"]
      lst2 = [caminho]
-     with open('info.csv', 'a') as file:
+     with open(fr'{username}\Documents\Info.csv', 'a') as file:
           writer = csv.writer(file, delimiter=",")
           for i in range(len(lst1)):
                writer.writerow([lst1[i], lst2[i], "Nome encontrado"])
@@ -23,7 +26,7 @@ def nome1_to_file(caminho):
 def cpf_to_file(caminho):
      lst1 = ["PATH"]
      lst2 = [caminho]
-     with open('info.csv', 'a') as file:
+     with open(fr'{username}\Documents\Info.csv', 'a') as file:
           writer = csv.writer(file, delimiter=",")
           for i in range(len(lst1)):
                writer.writerow([lst1[i], lst2[i], "CPF encontrado"])
@@ -31,7 +34,7 @@ def cpf_to_file(caminho):
 def rg_to_file(caminho):
      lst1 = ["PATH"]
      lst2 = [caminho]
-     with open('info.csv', 'a') as file:
+     with open(fr'{username}\Documents\Info.csv', 'a') as file:
           writer = csv.writer(file, delimiter=",")
           for i in range(len(lst1)):
                writer.writerow([lst1[i], lst2[i], "RG encontrado"])
@@ -39,7 +42,7 @@ def rg_to_file(caminho):
 def datas_to_file(caminho):
      lst1 = ["PATH"]
      lst2 = [caminho]
-     with open('info.csv', 'a') as file:
+     with open(fr'{username}\Documents\Info.csv', 'a') as file:
           writer = csv.writer(file, delimiter=",")
           for i in range(len(lst1)):
                writer.writerow([lst1[i], lst2[i], "Data encontrada"])
@@ -47,7 +50,7 @@ def datas_to_file(caminho):
 def tel_to_file(caminho):
      lst1 = ["PATH"]
      lst2 = [caminho]
-     with open('info.csv', 'a') as file:
+     with open(fr'{username}\Documents\Info.csv', 'a') as file:
           writer = csv.writer(file, delimiter=",")
           for i in range(len(lst1)):
                writer.writerow([lst1[i], lst2[i], "Telefone encontrado"])
@@ -56,7 +59,7 @@ def tel_to_file(caminho):
 def image_to_file(caminho):
      lst1 = ["PATH"]
      lst2 = [caminho]
-     with open('info.csv', 'a') as file:
+     with open(fr'{username}\Documents\Info.csv', 'a') as file:
           writer = csv.writer(file, delimiter=",")
           for i in range(len(lst1)):
                writer.writerow([lst1[i], lst2[i], "Foto com rosto detectado"])
