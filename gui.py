@@ -14,6 +14,8 @@ from tkinter import *
 from tkinter import PhotoImage as pht
 from tkinter import messagebox
 
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 from pathlib import Path
 
@@ -106,6 +108,18 @@ class MinhaGUI:
         )
         self.botao_sair.place(x=600.0, y=527.0, width=213.0, height=35.0)  # Adjust position as needed
 
+        self.botao_grafico = Button(
+            self.canvas,
+            text="Abrir Gráfico",
+            command=self.abrir_grafico,
+            bg="#D9D9D9",
+            fg="#000000",
+            background="#26ffff", 
+            font=("Jost", 14, "bold"),
+            relief="flat",
+        )
+        self.botao_grafico.place(x=500, y=600, width=213, height=35)
+
         # Prevent window resizing from code 2
         self.window.resizable(False, False)
 
@@ -143,5 +157,64 @@ class MinhaGUI:
                     texto_em_xlsx.texto(caminho, file, path, texto)
 
         messagebox.showinfo("GetSens3", "Análise feita com sucesso!")
+
+    def abrir_grafico(self):
+        # Função para ação do botão "Abrir Gráfico"
+        x = [1, 2, 3, 4]
+        y = [2, 3, 4, 3]
+
+        # criando a "figura" para comportar os gráficos e formar nosso Dashboard
+        Figura = plt.figure(figsize=(12, 6))
+        Figura.suptitle('Harry Potter menino maravilhoso')
+
+        # adicionando a primeira figura
+        Figura.add_subplot(331)
+
+        plot1 = plt.plot(x, y, label='dados ')
+        plot1 = plt.title('número de arquivos com dados relevantes')
+
+        plt.legend()
+
+        # adicionando o segundo plot na figura
+        Figura.add_subplot(332)
+        # segundo gráfico teste
+        cores = ['green', 'red', 'blue']
+        plot2 = plt.bar(x, y, label='número de sugadinhas', color=cores)
+        plot2 = plt.title('número de cpfs encontrados')
+
+        plt.legend()
+
+        # adicionando o 3 gráfico
+        Figura.add_subplot(333)
+        # terceiro gráfico teste
+        plot3 = plt.plot(x, y)
+        plot3 = plt.title('tipo de dado mais encontrado')
+
+        plt.legend()
+
+        # SEGUNDA LINHA DA FIGURA
+
+        # adicionando o 4 gráfico
+        Figura.add_subplot(334)
+        # terceiro gráfico teste
+        fatiax = [3, 2, 4]
+        cores = ['green', 'red', 'blue']
+        plot4 = plt.pie(fatiax, colors=cores)
+        plot4 = plt.title('tipo de dado mais encontrado')
+
+        plt.legend()
+
+        # adicionando uma terceira figura
+        Figura.add_subplot(335)
+        valorx = [5, 7, 3, 9]
+        valory = [1, 2, 3, 4]
+        plot4 = plt.scatter(valorx, valory, label='cpf, tamanho peniano')
+
+        plt.show()
+
+        plt.close()  # Fecha a janela do Matplotlib após desenhar o gráfico
+
+        # Rodando
+        mainloop()
 
 gui = MinhaGUI()
