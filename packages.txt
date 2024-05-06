@@ -11,3 +11,11 @@ pymupdf
 python-docx
 pandas
 openpyxl
+certifi
+chardet
+idna
+jinja2
+markupsafe
+Pillow >= 10.1
+requests
+urllib3
