@@ -6,6 +6,7 @@ import tkinter as tk
 import os.path
 import rosto_em_imagem
 import texto_em_docs
+import infos_to_file
 import texto_em_xlsx
 import fitz
 import openpyxl
@@ -158,63 +159,44 @@ class MinhaGUI:
 
         messagebox.showinfo("GetSens3", "Análise feita com sucesso!")
 
+
     def abrir_grafico(self):
-        # Função para ação do botão "Abrir Gráfico"
-        x = [1, 2, 3, 4]
-        y = [2, 3, 4, 3]
+        cnpj_count = infos_to_file.count_CNPJ()
+        nome_count = infos_to_file.count_nome()
+        cpf_count = infos_to_file.count_cpf()
+        rg_count = infos_to_file.count_rg()
+        data_count = infos_to_file.count_datas()
+        tel_count = infos_to_file.count_tel()
+        image_count = infos_to_file.count_image()
 
-        # criando a "figura" para comportar os gráficos e formar nosso Dashboard
-        Figura = plt.figure(figsize=(12, 6))
-        Figura.suptitle('Harry Potter menino maravilhoso')
+        # Data for the pie chart
+        data_types = ["CNPJ", "Nome", "CPF", "RG", "Data", "Telefone", "Foto"]
+        data_counts = [cnpj_count, nome_count, cpf_count, rg_count, data_count, tel_count, image_count]
 
-        # adicionando a primeira figura
-        Figura.add_subplot(331)
+        # Data for the bar chart
+        file_path = fr'{infos_to_file.username}\Documents\Data_result.csv'
+        top_paths = infos_to_file.top_paths_info(file_path)
+        paths, counts = zip(*top_paths)
 
-        plot1 = plt.plot(x, y, label='dados ')
-        plot1 = plt.title('número de arquivos com dados relevantes')
+        # Create figure and subplots
+        fig, axs = plt.subplots(1, 2, figsize=(14, 6))
 
-        plt.legend()
+        # Plot the pie chart
+        axs[0].pie(data_counts, labels=data_types, autopct="%1.1f%%")
+        axs[0].set_title("Distribuição de Tipos de Dados Encontrados")
 
-        # adicionando o segundo plot na figura
-        Figura.add_subplot(332)
-        # segundo gráfico teste
-        cores = ['green', 'red', 'blue']
-        plot2 = plt.bar(x, y, label='número de sugadinhas', color=cores)
-        plot2 = plt.title('número de cpfs encontrados')
+        # Plot the bar chart
+        axs[1].barh(paths, counts, color='skyblue')
+        axs[1].set_xlabel('Número de Informações')
+        axs[1].set_ylabel('Caminho')
+        axs[1].set_title('Top 10 Caminhos com mais informações')
+        axs[1].invert_yaxis()  # Invert y-axis to show the highest count at the top
 
-        plt.legend()
-
-        # adicionando o 3 gráfico
-        Figura.add_subplot(333)
-        # terceiro gráfico teste
-        plot3 = plt.plot(x, y)
-        plot3 = plt.title('tipo de dado mais encontrado')
-
-        plt.legend()
-
-        # SEGUNDA LINHA DA FIGURA
-
-        # adicionando o 4 gráfico
-        Figura.add_subplot(334)
-        # terceiro gráfico teste
-        fatiax = [3, 2, 4]
-        cores = ['green', 'red', 'blue']
-        plot4 = plt.pie(fatiax, colors=cores)
-        plot4 = plt.title('tipo de dado mais encontrado')
-
-        plt.legend()
-
-        # adicionando uma terceira figura
-        Figura.add_subplot(335)
-        valorx = [5, 7, 3, 9]
-        valory = [1, 2, 3, 4]
-        plot4 = plt.scatter(valorx, valory, label='cpf, tamanho peniano')
-
+        # Adjust layout
+        plt.tight_layout()
         plt.show()
 
-        plt.close()  # Fecha a janela do Matplotlib após desenhar o gráfico
 
-        # Rodando
-        mainloop()
+
 
 gui = MinhaGUI()
